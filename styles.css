@@ -1,0 +1,307 @@
+:root {
+    font-size: 10px;
+}
+
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+}
+/* set the overall styling for the body of an HTML document, including the font family, background color, text color, and some spacing at the bottom. These styles contribute to the overall appearance and layout of the webpage.*/
+body {
+    font-family: "Open Sans", Arial, sans-serif;
+    min-height: 100vh;
+    background-color: #fafafa;
+    color: #262626;
+    padding-bottom: 3rem;
+}
+
+/* control the layout and spacing of images within our webpage.*/
+img {
+    display: block;
+}
+
+/* ensures that content doesn't span too wide on larger screens.*/
+.container {    
+    max-width: 93.5rem;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* apply a circular border-radius by 50% to all <img> elements within an element with the class (profile-image).*/
+.profile-image img {
+    border-radius: 50%;
+}
+
+/* create a horizontally floated element that takes up 33.33% of its container's width, with a 1rem margin on each side.*/
+.profile-image {
+    float: left;
+    width: calc(33.33% - 1rem);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 3rem;
+}
+
+/* use the .profile::after rule to clearfix technique to ensure that the container with the class profile properly contains its floated child elements, preventing layout issues caused by floating elements.*/
+.profile::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+/* add significant vertical padding to the elements that the class profile applies to, creating space above and below the content.*/
+.profile {
+    padding: 5rem 0;
+}
+
+/*  style text elements with a specific appearance.*/
+.profile-user-name {
+    display: inline-block;
+    font-size: 3.2rem;
+    font-weight: 300;
+}
+
+/* style text elements, likely used for displaying a biography or description.*/
+.profile-bio {
+    margin-top: 2.3rem;
+    line-height: 1.5;
+    font-weight: 400;
+    font-size: 1.6rem;
+}
+
+
+.btn {
+    background:gainsboro;
+    display: inline-block;
+    font-size: 15px;
+    color: dark;
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;
+}
+
+
+.btn:hover {
+    background-color: darkgray;
+}
+
+
+.btn:focus {
+    outline: 0.5rem auto #4d90fe;
+}
+
+/* hide elements on the screen while keeping them accessible to assistive technologies such as screen readers.*/
+.visually-hidden {
+    position: absolute !important;
+    height: 1px;
+    width: 1px;
+    overflow: hidden;
+    clip: rect(1px, 1px, 1px, 1px);
+}
+
+
+.profile-edit-btn {
+    margin-left: 1rem;
+    font-size: 1.4rem;
+    line-height: 1.8;
+    border-radius: 0.3rem;
+    border: 0.1rem solid #dbdbdb;
+    padding: 0 2.4rem;
+}
+
+
+.profile-settings-btn {
+    font-size: 2rem;
+    margin-left: 1rem;
+}
+.profile-settings-btn:hover {
+    background-color: white;
+}
+
+
+.profile-archive-btn {
+    margin-left: 1rem;
+}
+
+
+.profile-archive-btn {
+    margin-left: 1rem;
+    font-size: 1.4rem;
+    line-height: 1.8;
+    border-radius: 0.3rem;
+    border: 0.1rem solid #dbdbdb;
+    padding: 0 2.4rem;
+}
+
+/* allow items to adjust based on the available space.*/
+.gallery {      
+    display: flex;
+    flex-wrap: wrap;
+    margin: -1rem -1rem;
+    padding-bottom: 3rem;
+}
+
+/* to ensure images don't overflow.*/
+.gallery-item {          
+    position: relative;
+    flex: 1 0 22rem;
+    margin: 1rem;
+    color: #fff;
+    cursor: pointer;
+}
+
+/* create a visually appealing effect for gallery items by displaying additional information centered over the items when they are hovered or focused.*/
+.gallery-item:hover .gallery-item-info, .gallery-item:focus, .gallery-item-info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+/* ensures images within gallery items are responsive.*/
+.gallery-image {   
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}       
+
+/*contains additional information about each gallery item and is positioned at the bottom with a semi-transparent background. */
+.gallery-item-info {   
+    display: none;
+}
+
+
+.gallery-item-info ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+
+.gallery-item-info li {
+    font-size: 1.7rem;
+    display: inline-block;
+    font-weight: 600;
+}
+
+
+.gallery-item-type {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 2.5rem;
+    text-shadow: o.2rem o.2rem o.2rem rgb(0,0,0,0.1);
+}
+
+
+.profile-stats {
+    margin-top: 2.3rem;
+}
+
+
+.profile-stat-count {
+    font-weight: bold;
+}
+
+
+.profile-user-settings, .profile-stats, .profile-bio {
+    float: left;
+    width: calc(66.66% - 2rem);
+}
+.profile-user-settings {
+    margin-top: 1.1rem;
+}
+
+.profile-stats li {
+    display: inline-block;
+    font-size: 1.6rem;
+    line-height: 1.5rem;
+    margin-right: 4rem;
+    cursor: pointer;
+}
+
+.profile-stats li:last-of-type{
+    margin-right: 0;
+}
+
+.profile-real-name, .profile-stat-count, .profile-edit-btn, .profile-archive-btn {
+    font-weight: 600;
+}
+
+/* styles using a media query for screen sizes with a maximum width of 40rem (640 pixels). The styles are adjusted to provide a responsive layout for the profile element and its child elements.*/
+@media screen and (max-width:40rem) {
+    .profile {
+        display: flex;
+        flex-wrap: wrap;
+        padding: 4rem 0;
+    }
+    .profile::after {
+        display: none;
+    }
+    .profile-image, .profile-user-settings, .profile-bio, .profile-stats {
+        float: none;
+        width: auto;
+    }
+    .profile-image img {
+        width: 7.7rem;
+    }
+    .profile-user-name {
+        font-size: 2.2rem;
+    }
+    .profile-user-settings {
+        flex-basis: calc(100% - 10.7rem);
+        display: flex;
+        flex-wrap: wrap;
+        margin-top: 1rem;
+    }
+    .profile-edit-btn {
+        order: 1;
+        padding: 0;
+        text-align: center;
+        margin-top: 1rem;
+    }
+    .profile-edit-btn {
+        margin-left: 0;
+    }
+    .profile-archive-btn {
+        order: 1;
+        padding: 0;
+        text-align: center;
+        margin-top: 1rem;
+    }
+    .profile-archive-btn {
+        margin-left: 0;
+    }
+    .profile-bio {
+        font-size: 1.4rem;
+        margin-top: 1.5rem;
+    }
+    .profile-edit-btn, .profile-bio, .profile-stats, .profile-archive-btn {
+        flex-basis: 100%;
+    }
+    .profile-stats {
+        order: 1;
+        margin-top: 1.5rem;
+    }
+    .profile-stats ul {
+        display: flex;
+        text-align: center;
+        padding: 1.2rem 0;
+        border-top: 0.1rem solid #dadada;
+        border-bottom: 0.1rem solid #dadada;
+    }
+    .profile-stats li {
+        font-size: 1.4rem;
+        flex: 1;
+        margin: 0;
+    }
+    .profile-stat-count {
+        display: block;
+    }
+}
